@@ -349,7 +349,8 @@ function mcstair.add(name, stairtiles)
 		after_place_node = function(pos, placer, itemstack, pointed_thing)
 			local node = minetest.get_node(pos)
 			local ceiling = false
-			if pointed_thing.under.y > pointed_thing.above.y then
+			if pointed_thing.under.y > pointed_thing.above.y or
+					(pointed_thing.under.y == pointed_thing.above.y and minetest.pointed_thing_to_face_pos(placer, pointed_thing).y % 1 < 0.5) then
 				ceiling = true
 				if node.param2 == 0 then node.param2 = 20
 				elseif node.param2 == 1 then node.param2 = 23
