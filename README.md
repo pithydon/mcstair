@@ -1,4 +1,4 @@
-mcstair v1.1
+mcstair
 
 Minecraft like corner stairs.
 
