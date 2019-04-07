@@ -181,6 +181,10 @@ end
 
 function mcstair.add(name, stairtiles)
 	local node_def = minetest.registered_nodes[name]
+	if node_def == nil then
+		minetest.log("error", "mcstair: Can not register \""..name.."\". Node not found in registered nodes.")
+		return
+	end
 	local outer_tiles
 	local inner_tiles
 	if stairtiles then
