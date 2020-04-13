@@ -182,7 +182,7 @@ end
 function mcstair.register(subname)
 	local node_def = minetest.registered_nodes["stairs:stair_"..subname]
 	if node_def == nil then
-		minetest.log("error", "mcstair: Can not register \""..name.."\". Node not found in registered nodes.")
+		minetest.log("error", "mcstair: Can not register \"stairs:stair_"..subname.."\". Node not found in registered nodes.")
 		return
 	end
 	local outer_groups = table.copy(node_def.groups)
@@ -1116,4 +1116,55 @@ for _,v in ipairs({
 	"obsidian_glass"
 }) do
 	mcstair.register(v)
+end
+
+if minetest.get_modpath("mtg_plus") then
+	for _,v in ipairs({
+		"sandstone_cobble",
+		"desert_sandstone_cobble",
+		"silver_sandstone_cobble",
+		"jungle_cobble",
+		"snow_brick",
+		"hard_snow_brick",
+		"ice_snow_brick",
+		"ice_brick",
+		"ice_tile4",
+		"goldwood",
+		"goldbrick",
+		"bronzebrick",
+		"tinbrick",
+		"copperbrick",
+		"steelbrick",
+		"harddirtbrick",
+		"gravel_cobble"
+	}) do
+		mcstair.register(v)
+	end
+end
+
+if minetest.get_modpath("quartz") then
+	for _,v in ipairs({
+		"quartzblock",
+		"quartzstair"
+	}) do
+		mcstair.register(v)
+	end
+end
+
+if minetest.get_modpath("xdecor") then
+	for _,v in ipairs({
+		"barrel",
+		"cactusbrick",
+		"coalstone_tile",
+		"desertstone_tile",
+		"hard_clay",
+		"moonbrick",
+		"stone_tile",
+		"stone_rune",
+		"packed_ice",
+		"wood_tile",
+		"woodframed_glass"
+	}) do
+		mcstair.register(v)
+	end
 end
