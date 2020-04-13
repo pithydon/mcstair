@@ -35,15 +35,14 @@ For these and/or other purposes and motivations, and without any expectation of 
 mod api:
 
 ```lua
-mcstair.add(name, stairtiles)
+mcstair.register(subname)
 ```
 
-"name" is the name of the node to make corner stairs for.
+"subname" is the name of the node to register corner stair logic for. Eg "wood" for node "stairs:stair_wood".
 
-"stairtiles" is an optional table of tiles to override textures for inner and outer stairs.
-
-"stairtiles" format is...
+"mcstair.add()" is deprecated. When porting to "mcstair.register()" register aliases for preexisting worlds.
 
 ```lua
-{tiles_def_for_outer_stair, tiles_def_for_inner_stair}
+minetest.register_alias("stairs:stair_wood_outer", "stairs:stair_outer_wood")
+minetest.register_alias("stairs:stair_wood_inner", "stairs:stair_inner_wood")
 ```
