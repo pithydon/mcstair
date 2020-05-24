@@ -2,7 +2,7 @@ mcstair = {}
 
 local get_stair_param = function(node)
 	local stair = minetest.get_item_group(node.name, "stair")
-	local param = node.param2 % 24
+	local param = (node.param2 % 32) % 24
 	if stair == 0 or (param > 3 and param < 20) then
 		return
 	elseif stair == 1 then
